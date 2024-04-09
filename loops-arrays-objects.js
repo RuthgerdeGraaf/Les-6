@@ -16,7 +16,9 @@ const scores = [
 // 66
 // ==========================================
 
-
+for (let i = 0; i < scores.length; i++) {
+    console.log(scores[i].score);
+}
 
 
 
@@ -32,7 +34,23 @@ const scores = [
 // D
 // ==========================================
 
-
+console.log("Opdracht 1b:");
+for (let i = 0; i < scores.length; i++) {
+    const score = scores[i].score;
+    let grade;
+    if (score < 60) {
+        grade = "F";
+    } else if (score < 70) {
+        grade = "D";
+    } else if (score < 80) {
+        grade = "C";
+    } else if (score < 90) {
+        grade = "B";
+    } else {
+        grade = "A";
+    }
+    console.log(grade);
+}
 
 
 
@@ -50,7 +68,25 @@ const scores = [
 // ==========================================
 
 
+console.log("\nOpdracht 1c:");
+for (let i = 0; i < scores.length; i++) {
+    const score = scores[i].score;
+    let grade;
+    if (score < 60) {
+        grade = "F";
+    } else if (score < 70) {
+        grade = "D";
+    } else if (score < 80) {
+        grade = "C";
+    } else if (score < 90) {
+        grade = "B";
+    } else {
+        grade = "A";
+    }
+    scores[i].grade = grade;
+}
 
+console.log(scores);
 
 
 // ==========================================
@@ -76,6 +112,16 @@ const NOVIEmployees = [
 // ==========================================
 
 
+
+// Itereer door de array en voeg voor iedere medewerker een e-mailadres toe
+for (let i = 0; i < NOVIEmployees.length; i++) {
+    const firstName = NOVIEmployees[i].firstName;
+    const lastName = NOVIEmployees[i].lastName;
+    const email = `${firstName}.${lastName}@novi.nl`.toLowerCase();
+    NOVIEmployees[i].email = email;
+}
+
+console.log(NOVIEmployees);
 
 
 
@@ -118,18 +164,32 @@ const students = [
 // [
 //     { name: 'Mariska', city: 'Utrecht', zipCode: '3513', neighborhood: 'Pijlsweerd' },
 //     { name: 'Mehmet', city: 'Utrecht', zipCode: '3514', neighborhood: 'Vogelenbuurt' },
-//     { name: 'Dennis', city: 'Utrecht', zipCode: '3572', neighborhood: 'Vogelenbuurt' },
-//     { name: 'Robin', city: 'Utrecht', zipCode: '3581', neighborhood: 'Vogelenbuurt' },
-//     { name: 'Tanush', city: 'Utrecht', zipCode: '3512', neighborhood: 'Vogelenbuurt' },
+//     { name: 'Dennis', city: 'Utrecht', zipCode: '3572', neighborhood: 'Wittevrouwn' },
+//     { name: 'Robin', city: 'Utrecht', zipCode: '3581', neighborhood: 'Oudwijk' },
+//     { name: 'Tanush', city: 'Utrecht', zipCode: '3512', neighborhood: 'Binnenstad' },
 //     { name: 'Florien', city: 'Utrecht', zipCode: '3513', neighborhood: 'Pijlsweerd' },
-//     { name: 'Larissa', city: 'Utrecht', zipCode: '3583', neighborhood: 'Vogelenbuurt' },
-//     { name: 'Marijn', city: 'Utrecht', zipCode: '3572', neighborhood: 'Vogelenbuurt' },
-//     { name: 'Jan', city: 'Utrecht', zipCode: '3531', neighborhood: 'Vogelenbuurt' },
-//     { name: 'Laura', city: 'Utrecht', zipCode: '3531', neighborhood: 'Vogelenbuurt' },
+//     { name: 'Larissa', city: 'Utrecht', zipCode: '3583', neighborhood: 'Schildersbuurt' },
+//     { name: 'Marijn', city: 'Utrecht', zipCode: '3572', neighborhood: 'Wittevrouwen' },
+//     { name: 'Jan', city: 'Utrecht', zipCode: '3531', neighborhood: 'Lombok' },
+//     { name: 'Laura', city: 'Utrecht', zipCode: '3531', neighborhood: 'Lombok' },
 //     { name: 'Aicha', city: 'Utrecht', zipCode: '3514', neighborhood: 'Vogelenbuurt' },
-//     { name: 'Karima', city: 'Utrecht', zipCode: '3531', neighborhood: 'Vogelenbuurt' }
+//     { name: 'Karima', city: 'Utrecht', zipCode: '3531', neighborhood: 'Lombok' }
 // ]
 // ==========================================
+const neighborhoodMapping = {
+    '3513': 'Pijlsweerd',
+    '3514': 'Vogelenbuurt',
+    '3512': 'Binnenstad',
+    '3531': 'Lombok',
+    '3572': 'Wittevrouwen',
+    '3581': 'Oudwijk',
+    '3583': 'Schildersbuurt'
+};
 
+for (let i = 0; i < students.length; i++) {
+    const zipCode = students[i].zipCode;
+    students[i].neighborhood = neighborhoodMapping[zipCode];
+}
 
+console.log(students);
 
